@@ -17,11 +17,6 @@ module.exports = (function() {
 
   function databot(input, output, context) {
     output.progress(0);
-    const config = {
-      commandHost: context.commandHost,
-      queryHost: context.queryHost,
-      accessToken: context.authToken
-    };
     const api = context.tdxApi;
     output.debug("fetching data for %s", input.geojsonFileId);
     api.getDatasetData(input.geojsonFileId, null, null, {limit:50000}, (err, response) => {
